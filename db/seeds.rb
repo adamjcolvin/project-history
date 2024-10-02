@@ -21,3 +21,8 @@ User.find_or_create_by!(email: 'homey@techtest.com') do |user|
   user.first_name = 'Homey'
   user.last_name = 'Admin'
 end
+
+project = Project.find_or_create_by!(title: 'Project Alpha') do |project|
+  project.description = 'This is the first project.'
+  project.state = :planning
+end

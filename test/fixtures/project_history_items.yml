@@ -2,8 +2,10 @@
 
 one:
   project: one
-  type: 
+  historical_type: "Comment"
+  historical_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
 
 two:
   project: two
-  type: 
+  historical_type: "Comment"
+  historical_id: <%= ActiveRecord::FixtureSet.identify(:two) %>

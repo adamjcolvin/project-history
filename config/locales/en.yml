@@ -28,4 +28,10 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  project:
+    states:
+      planning: "Planning"
+      to_do: "To Do"
+      in_progress: "In Progress"
+      testing: "Testing"
+      done: "Done"

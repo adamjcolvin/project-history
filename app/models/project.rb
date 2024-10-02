@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   has_many :comments, dependent: :destroy
-  enum state: %i[planning to_do in_progress testing done]
+  STATES = %i[planning to_do in_progress testing done]
+  enum state: STATES
+
   after_initialize :set_default_state, if: :new_record?
 
   private

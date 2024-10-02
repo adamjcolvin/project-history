@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :state_changes
   resources :comments
   devise_for :users
   resources :projects

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @state_change %>
+
+<div>
+  <%= link_to "Edit this state change", edit_state_change_path(@state_change) %> |
+  <%= link_to "Back to state changes", state_changes_path %>
+
+  <%= button_to "Destroy this state change", @state_change, method: :delete %>
+</div>

@@ -1,0 +1,12 @@
+<% content_for :title, "Editing state change" %>
+
+<h1>Editing state change</h1>
+
+<%= render "form", state_change: @state_change %>
+
+<br>
+
+<div>
+  <%= link_to "Show this state change", @state_change %> |
+  <%= link_to "Back to state changes", state_changes_path %>
+</div>

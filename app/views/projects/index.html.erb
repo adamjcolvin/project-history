@@ -6,7 +6,7 @@
 
 <div id="projects">
   <% @projects.each do |project| %>
-    <%= render project %>
+    <%= project.title %>
     <p>
       <%= link_to "Show this project", project %>
     </p>

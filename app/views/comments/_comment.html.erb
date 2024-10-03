@@ -1,17 +1,5 @@
-<div id="<%= dom_id comment %>">
-  <p>
-    <strong>Content:</strong>
-    <%= comment.content %>
-  </p>
-
-  <p>
-    <strong>Project:</strong>
-    <%= comment.project_id %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= comment.user_id %>
-  </p>
-
+<div id="<%= dom_id comment %>" class="comment">
+  <h5><%= user_full_name(comment.user) %></h5>
+  <%= comment.content %>
+  <p class=timestamp><%= comment.created_at.strftime("%I:%M %p") %></p>
 </div>

@@ -1,10 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
+<%= turbo_stream_from @project %>
+
 <%= render @project %>
 
 <div>
   <%= link_to "Edit this project", edit_project_path(@project) %> |
   <%= link_to "Back to projects", projects_path %>
-
-  <%= button_to "Destroy this project", @project, method: :delete %>
 </div>
+
+<%= render "comments/new", project: @project %>
+
+<h2>Project History</h2>
+<%= render "project_history_items", project: @project %>

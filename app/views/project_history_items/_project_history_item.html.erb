@@ -1,0 +1,7 @@
+<div id="<%= dom_id project_history_item %>">
+  <% if project_history_item.historical_type == "Comment" %>
+    <%= render partial: 'comments/comment', locals: { comment: project_history_item.historical } %>
+  <% elsif project_history_item.historical_type == "StateChange" %>
+    <%= render partial: 'state_changes/state_change', locals: { state_change: project_history_item.historical } %>
+  <% end %>
+</div>

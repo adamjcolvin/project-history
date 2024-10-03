@@ -1,0 +1,40 @@
+history:
+  - state: "planning"
+
+  - question: "What states can a project be in? Is there a default state for a new project?"
+  - answer: "For now, let's go with Planning, To Do, In Progress, Testing and Done. The default state should be Planning."
+
+  - question: "Should a project move through the states in a certain order, like transitioning from To Do to In Progress for example?"
+  - answer: "Eventually we may want to enforce rules like that, but not for now."
+
+  - question: "What does a project consist of? What details do we want to show about a project?"
+  - answer: "The main focus will be on the project history, so some basic details like a project title and description will do for now."
+
+  - state: "to_do"
+
+  - question: "What about the UX for this feature? Where will the history sit within the project and what will this look like?"
+  - answer: "Go with a list of items underneath the basic details of the project. The items should be listed in the order they were created."
+
+  - question: "How do we want to paginate or lazy-load the history if there are lots of items?"
+  - answer: "Build the solution with pagination in mind, but don't worry about implementing it for now."
+
+  - question: "How about permissions? Do we only want to allow certain types of user to edit a project's state or add a comment?"
+  - answer: "Eventually, we may only want to let the creator of the project edit the state, but for now we can just let any user make updates."
+
+  - state: "in_progress"
+
+  - question: "Once a comment has been added, can it be edited or deleted?"
+  - answer: "Comments can be edited or deleted by the author."
+
+  - question: "Can comments be replied to?"
+  - answer: "Eventually yes, but it's not necessary for the first version."
+
+  - question: "Can other users be 'mentioned' in comments, using @<name> or something similar."
+  - answer: "Eventually yes, but not for this version."
+
+  - state: "testing"
+
+  - question: "Should users be notified when a new comment is added? How do we do this and when?"
+  - answer: "Commenters on the project could be notified by email when a new comment is added, but don't worry about this for now."
+
+  - state: "done"

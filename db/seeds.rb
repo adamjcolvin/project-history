@@ -1,21 +1,11 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
-User.find_or_create_by!(email: 'adam@techtest.com') do |user|
+adam = User.find_or_create_by!(email: 'adam@techtest.com') do |user|
   user.password = 'password'
   user.password_confirmation = 'password'
   user.first_name = 'Adam'
   user.last_name = 'Colvin'
 end
 
-User.find_or_create_by!(email: 'homey@techtest.com') do |user|
+homey = User.find_or_create_by!(email: 'homey@techtest.com') do |user|
   user.password = 'password'
   user.password_confirmation = 'password'
   user.first_name = 'Homey'
@@ -25,4 +15,18 @@ end
 project = Project.find_or_create_by!(title: 'Project Alpha') do |project|
   project.description = 'This is the first project.'
   project.state = :planning
+end
+
+history_data = YAML.load_file(Rails.root.join('db', 'project_history.yml'))
+history_data['history'].each do |history_item|
+  if history_item['question']
+    question = history_item['question']
+    project.comments.find_or_create_by!(content: question, user: adam)
+  elsif history_item['answer']
+    answer = history_item['answer']
+    project.comments.find_or_create_by!(content: answer, user: homey)
+  elsif history_item['state']
+    state = history_item['state']
+    project.update(state: state, user: adam)
+  end
 end

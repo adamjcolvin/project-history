@@ -3,9 +3,9 @@
 one:
   title: MyString
   description: MyText
-  state: MyString
+  state: planning
 
 two:
   title: MyString
   description: MyText
-  state: MyString
+  state: planning

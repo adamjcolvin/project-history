@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_02_132904) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_02_153247) do
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "project_id", null: false
@@ -40,13 +40,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_02_132904) do
   end
 
   create_table "state_changes", force: :cascade do |t|
-    t.integer "project_id", null: false
     t.string "from_state"
     t.string "to_state"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_state_changes_on_project_id"
     t.index ["user_id"], name: "index_state_changes_on_user_id"
   end
 
@@ -67,6 +65,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_02_132904) do
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
   add_foreign_key "project_history_items", "projects"
-  add_foreign_key "state_changes", "projects"
   add_foreign_key "state_changes", "users"
 end

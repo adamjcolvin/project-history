@@ -11,14 +11,6 @@
 
   <p>
     <strong>State:</strong>
-    <%= project.state %>
-    <br>
-    <select name="project[state]" id="project_state">
-      <% Project::STATES.each do |state| %>
-        <option value="<%= state %>" <%= 'selected' if project.state == state %>>
-          <%= I18n.t("project.states.#{state}") %>
-        </option>
-      <% end %>
-    </select>
+    <%= I18n.t("project.states.#{project.state}") %>
   </p>
 </div>

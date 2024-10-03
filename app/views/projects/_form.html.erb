@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :state, style: "display: block" %>
-    <%= form.text_field :state %>
+    <%= form.select :state, options_for_select(Project::STATES.map { |state| [I18n.t("project.states.#{state}"), state] }, selected: project.state) %>
   </div>
 
   <div>

@@ -1,5 +1,4 @@
 class StateChange < ApplicationRecord
-  belongs_to :project
   belongs_to :user
-  has_many :project_history_items, as: :historical
+  has_one :project_history_item, as: :historical
 end

@@ -1,13 +1,13 @@
 # README
 
 ### Usage
-You can find the app deployed on Heroku [here](https://project-history-5473a09f03f2.herokuapp.com). You can use either of these authentication details to log in:
+You can find the app deployed on Heroku [here](https://project-history-5473a09f03f2.herokuapp.com). You can use either of the authentication details below to log in.
 
 Once you're logged in you're taken to a list of projects. Clicking on "Show Project" will take you to the project details with the conversation history underneath. 
 
 You can click on "Edit Project" to update the state, and use the comment text box to add a comment. Both will then be displayed in the history. 
 
-####User 1
+#### User 1
 
 **email**: adam@techtest.com
 
@@ -23,21 +23,23 @@ You can click on "Edit Project" to update the state, and use the comment text bo
 
 --
 
+## Screenshot
 
+<img width="500" alt="Screenshot 2024-10-04 at 12 59 55" src="https://github.com/user-attachments/assets/9689fad3-42b2-49f8-86a5-fb560d27bb4c">
 
-### Approach 
+## Approach 
 * The history needs to show both comments and state changes, so both of these are modelled with their own Active Record model. The Project model has an enumeration for the state, but any change to this will add a new StateChange record. This allows us know exactly what was changed, when it was changed and who changed it.  
 * To show the comments and state together in the same history, I added another model called ProjectHistoryItem. This is a simple model with a polymorphic association to either a comment or a state change.
 * This means that we can easily add more items to the history, say file attachments or deadlines for example. They could have their own data and styling but still be treated as history items. That makes things like sorting and filtering easier, as well as things like pagination, if we end up with very long histories. As well as things like sorting and indexing. 
 * The Project page is also live, so any changes to the converstation history are streamed using Turbo Streams, meaning the page will update without a refresh being needed. 
 
-### Tradeoffs
+## Tradeoffs
 * I stuck with minitest for this, and the standard fixture files. For a larger project, or with more time, I'd be tempted to switch to RSpec and FactoryBot.
 
 * I used [SimpleCSS](https://simplecss.org) for some basic styling around the generated pages. I added some very simple styling to comments and state
 changes. I would have done more here given more time. 
 
-### Assumptions
+## Assumptions
 Based on the outline I was given, here are the questions I would have asked and the assumptions I've made.
 
 I've also included these as seed data in the conversation history.

@@ -1,3 +1,5 @@
+ENV["SEEDING"] = "true"
+
 adam = User.find_or_create_by!(email: 'adam@techtest.com') do |user|
   user.password = 'password'
   user.password_confirmation = 'password'
@@ -30,3 +32,5 @@ history_data['history'].each do |history_item|
     project.update(state: state, user: adam)
   end
 end
+
+ENV["SEEDING"] = nil

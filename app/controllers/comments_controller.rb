@@ -23,7 +23,6 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @project.comments.create!(comment_params.merge(user: current_user))
-    redirect_to @project
   end
 
   # PATCH/PUT /comments/1 or /comments/1.json

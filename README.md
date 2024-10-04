@@ -1,7 +1,7 @@
 # README
 
 ### Usage
-You can find the app deployed on Heroku here. You can use either of these authentication details to log in:
+You can find the app deployed on Heroku [here](https://project-history-5473a09f03f2.herokuapp.com). You can use either of these authentication details to log in:
 
 Once you're logged in you're taken to a list of projects. Clicking on "Show Project" will take you to the project details with the conversation history underneath. 
 
